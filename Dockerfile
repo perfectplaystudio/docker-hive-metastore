@@ -19,4 +19,6 @@ ENV HADOOP_HOME /opt/hadoop
 
 RUN wget http://central.maven.org/maven2/mysql/mysql-connector-java/5.1.40/mysql-connector-java-5.1.40.jar -O /opt/hive/lib/mysql-connector-java-5.1.40.jar
 
-CMD aws s3 cp $HIVE_SITE_XML_S3_PATH /opt/hive/conf/ && /opt/hive/bin/hive --service metastore --hiveconf hive.root.logger=WARN
+ENV HADOOP_OPTS="-Dhive.log.level=OFF"
+
+CMD aws s3 cp $HIVE_SITE_XML_S3_PATH /opt/hive/conf/ && aws s3 cp $CORE_SITE_XML_S3_PATH /opt/hadoop/etc/hadoop/ && /opt/hive/bin/hive --service metastore
