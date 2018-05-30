@@ -13,7 +13,8 @@ RUN cd /opt \
         && wget http://ftp.cixug.es/apache/hive/hive-2.1.1/apache-hive-2.1.1-bin.tar.gz \
         && tar -xzf apache-hive-2.1.1-bin.tar.gz \
         && ln -s apache-hive-2.1.1-bin hive \
-        && rm -f apache-hive-2.1.1-bin.tar.gz
+        && rm -f apache-hive-2.1.1-bin.tar.gz \
+        && wget http://central.maven.org/maven2/org/apache/hadoop/hadoop-aws/2.7.3/hadoop-aws-2.7.3.jar -O /opt/hive/lib/hadoop-aws-2.7.3.jar
 
 ENV HADOOP_HOME /opt/hadoop
 
