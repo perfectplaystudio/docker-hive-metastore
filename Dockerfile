@@ -10,15 +10,15 @@ RUN cd /opt \
 
 
 RUN cd /opt \
-        && wget http://ftp.cixug.es/apache/hive/hive-2.1.1/apache-hive-2.1.1-bin.tar.gz \
+        && wget https://archive.apache.org/dist/hive/hive-2.1.1/apache-hive-2.1.1-bin.tar.gz \
         && tar -xzf apache-hive-2.1.1-bin.tar.gz \
         && ln -s apache-hive-2.1.1-bin hive \
         && rm -f apache-hive-2.1.1-bin.tar.gz \
-        && wget http://central.maven.org/maven2/org/apache/hadoop/hadoop-aws/2.7.3/hadoop-aws-2.7.3.jar -O /opt/hive/lib/hadoop-aws-2.7.3.jar
+        && wget https://repo.maven.apache.org/maven2/org/apache/hadoop/hadoop-aws/2.7.3/hadoop-aws-2.7.3.jar -O /opt/hive/lib/hadoop-aws-2.7.3.jar
 
 ENV HADOOP_HOME /opt/hadoop
 
-RUN wget http://central.maven.org/maven2/mysql/mysql-connector-java/5.1.40/mysql-connector-java-5.1.40.jar -O /opt/hive/lib/mysql-connector-java-5.1.40.jar
+RUN wget https://repo.maven.apache.org/maven2/mysql/mysql-connector-java/5.1.40/mysql-connector-java-5.1.40.jar -O /opt/hive/lib/mysql-connector-java-5.1.40.jar
 
 ENV HADOOP_OPTS="-Dhive.log.level=OFF"
 
