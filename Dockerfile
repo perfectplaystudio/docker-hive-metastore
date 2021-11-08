@@ -18,8 +18,10 @@ RUN cd /opt \
 
 ENV HADOOP_HOME /opt/hadoop
 
-RUN wget https://repo.maven.apache.org/maven2/mysql/mysql-connector-java/5.1.40/mysql-connector-java-5.1.40.jar -O /opt/hive/lib/mysql-connector-java-5.1.40.jar
+RUN wget https://repo.maven.apache.org/maven2/mysql/mysql-connector-java/5.1.40/mysql-connector-java-5.1.40.jar -O /opt/hive/lib/mysql-connector-java-5.1.40.jar \
+	&& wget https://s3.amazonaws.com/awslabs-code-us-east-1/HiveGlueCatalogSyncAgent/HiveGlueCatalogSyncAgent-1.2-SNAPSHOT-complete.jar -O /opt/hive/lib/HiveGlueCatalogSyncAgent-1.2-SNAPSHOT-complete.jar \
+	&& wget https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-core/1.12.43/aws-java-sdk-core-1.12.43.jar -O /opt/hive/lib/aws-java-sdk-core-1.12.43.jar
 
-ENV HADOOP_OPTS="-Dhive.log.level=OFF"
+ENV HADOOP_OPTS="-Dhive.log.level=DEBUG"
 
 CMD aws s3 cp $HIVE_SITE_XML_S3_PATH /opt/hive/conf/ && aws s3 cp $CORE_SITE_XML_S3_PATH /opt/hadoop/etc/hadoop/ && /opt/hive/bin/hive --service metastore
