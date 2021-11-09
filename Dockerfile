@@ -21,11 +21,7 @@ ENV HADOOP_HOME /opt/hadoop
 RUN wget https://repo.maven.apache.org/maven2/mysql/mysql-connector-java/5.1.40/mysql-connector-java-5.1.40.jar -O /opt/hive/lib/mysql-connector-java-5.1.40.jar \
 	&& aws s3 cp s3://webgames-app-distr/hivemetastore/HiveGlueCatalogSyncAgent-1.2-SNAPSHOT-complete.jar /opt/hive/lib/ \
 	&& wget https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-core/1.12.43/aws-java-sdk-core-1.12.43.jar -O /opt/hive/lib/aws-java-sdk-core-1.12.43.jar \
-	&& wget https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-logs/1.12.43/aws-java-sdk-logs-1.12.43.jar -O /opt/hive/lib/aws-java-sdk-logs-1.12.43.jar \
-	&& wget https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-core/2.12.3/jackson-core-2.12.3.jar -O /opt/hive/lib/jackson-core-2.12.3.jar \
-	&& wget https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.12.3/jackson-annotations-2.12.3.jar -O /opt/hive/lib/jackson-annotations-2.12.3.jar \
-	&& wget https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.12.3/jackson-databind-2.12.3.jar -O /opt/hive/lib/jackson-databind-2.12.3.jar 
-
+	&& wget https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-logs/1.12.43/aws-java-sdk-logs-1.12.43.jar -O /opt/hive/lib/aws-java-sdk-logs-1.12.43.jar 
 
 ENV HADOOP_OPTS="-Dhive.log.level=DEBUG"
 
